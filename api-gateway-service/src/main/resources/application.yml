@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: api-gateway-service
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 229444913466-rk80889nfbpm1vehi0dvegj43g6ofi1e.apps.googleusercontent.com
+            client-secret: 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
+            scope:
+              - openid
+              - profile
+              - email
+  cloud:
+    gateway:
+      routes:
+        - id: ai_service_route
+          uri: http://localhost:8000
+          predicates:
+            - Path=/gw/ai-service/**
+          filters:
+            - StripPrefix=2
+        - id: eval_service_route
+          uri: http://localhost:8001
+          predicates:
+            - Path=/gw/eval-service/**
+          filters:
+            - StripPrefix=2
+        - id: clickup_service_route
+          uri: http://localhost:8002
+          predicates:
+            - Path=/gw/clickup-service/**
+          filters:
+            - StripPrefix=2
+
+server:
+  port: 8080
+jwt:
+  secret: "pZQ9rN7yXmJwC4fE8vA1D3sK7gH0jL5+oPiUuYtTzReWwXcVbNmMqQrXtYvZwZaBpZQ9rN7yXmJwC4fE8vA1D3sK7gH0jL5+oPiUuYtTzReWwXcVbNmMqQrXtYvZwZaB"
+  expiration-ms: 3600000 # 1 hour
+  issuer: "api-gateway-service" 
+  frontend-login-success-redirect-uri: "http://localhost:3000/auth/callback" 
+logging:
+  level:
+    org.springframework.security: TRACE
+    org.springframework.security.oauth2: TRACE

@@ -1,0 +1,12 @@
+server:
+  port: 8002
+
+clickup:
+  list-id: 901208496477
+  api-base-url: https://api.clickup.com/api/v2
+  api-key: ${CLICKUP_API_KEY:pk_72163060_S0KYNR7YCXM2R75LNCMVPERJLOJUJHTU}
+
+jwt:
+  secret: "pZQ9rN7yXmJwC4fE8vA1D3sK7gH0jL5+oPiUuYtTzReWwXcVbNmMqQrXtYvZwZaBpZQ9rN7yXmJwC4fE8vA1D3sK7gH0jL5+oPiUuYtTzReWwXcVbNmMqQrXtYvZwZaB"
+  expiration-ms: 3600000 
+  issuer: "api-gateway-service" 

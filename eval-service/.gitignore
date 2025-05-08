@@ -1,0 +1,31 @@
+# In Pfe-Eval/.gitignore
+
+# Python Virtual Environments
+ai-service/venv/
+eval-service/venv/
+venv/ # General catch-all if needed
+
+# Environment variables
+ai-service/.env*
+ai-service/!.env.example
+eval-service/.env*
+eval-service/!.env.example
+.env*
+!.env.example
+
+# Python caches
+**/__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# IDE specific
+.idea/
+.vscode/
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# Docker cache / data (optional)
+# eval-service/minio_data/ # If you decide to map volumes locally per service
